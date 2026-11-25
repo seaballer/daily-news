@@ -1,3 +1,5 @@
+![Daily News — notícias de política e tecnologia](assets/daily-news-banner.svg)
+
 # Daily News (MVP local)
 
 Página editorial local em pt-BR com duas seções fixas — Política e Tecnologia — e uma API JSON mínima. Requer Node.js 18.19.1 ou superior.
