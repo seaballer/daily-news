@@ -40,10 +40,7 @@ test('importa o par histórico mais recente e ignora outros padrões', async () 
     assert.equal(edition.sections.politica[0].source, 'AP');
     assert.equal(edition.sections.politica[0].url, 'https://apnews.com/a');
     assert.equal(edition.sections.politica[0].publishedAt, '2026-11-24');
-    assert.equal(
-      edition.sections.politica[0].descriptionOrigin,
-      'Texto editorial do relatório histórico (24/11/2026)',
-    );
+    assert.equal(edition.sections.politica[0].descriptionOrigin, '');
   } finally {
     await fs.rm(root, { recursive: true, force: true });
   }

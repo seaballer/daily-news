@@ -56,7 +56,7 @@ function renderItem(item, featured) {
   article.append(heading);
 
   if (item.description) article.append(element('p', 'descricao', item.description));
-  article.append(element('p', 'descriptorigem', item.descriptionOrigin || 'Origem da descrição não informada'));
+  if (item.descriptionOrigin) article.append(element('p', 'descriptorigem', item.descriptionOrigin));
 
   const foot = element('footer', 'card-foot');
   const time = element('time', '', item.publishedAtLabel || 'Data não informada');
@@ -96,7 +96,11 @@ function render(payload) {
   const status = (payload && payload.status) || {};
 
   let message = status.message || 'Sem informações de status.';
-  if (status.lastError && edition) message = `${message} Última falha: ${status.lastError}`;
+  if (edition) {
+    message = edition.dateLabel || edition.date || message;
+  } else if (status.lastError) {
+    message = `${message} Última falha: ${status.lastError}`;
+  }
   elements.status.textContent = message;
 
   elements.notice.hidden = !edition;

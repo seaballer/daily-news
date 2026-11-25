@@ -65,7 +65,6 @@ body {
 .eyebrow,
 .origem,
 .destaque-label,
-.descriptorigem,
 .status,
 .button,
 .badge,
@@ -259,13 +258,6 @@ main {
 .descricao {
   margin: 0;
   color: var(--ink);
-}
-
-.descriptorigem {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.78rem;
-  font-style: italic;
 }
 
 .card-foot {
