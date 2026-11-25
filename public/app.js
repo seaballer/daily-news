@@ -1,12 +1,10 @@
 'use strict';
 
 const elements = {
-  status: document.getElementById('status'),
   refresh: document.getElementById('refresh'),
-  badge: document.getElementById('badge'),
-  notice: document.getElementById('edicao'),
-  editionTitle: document.getElementById('edicao-titulo'),
+  editionDate: document.getElementById('edicao-data'),
   collectedAt: document.getElementById('coleta-data'),
+  badge: document.getElementById('badge'),
   politica: document.getElementById('politica-lista'),
   tecnologia: document.getElementById('tecnologia-lista'),
 };
@@ -56,7 +54,6 @@ function renderItem(item, featured) {
   article.append(heading);
 
   if (item.description) article.append(element('p', 'descricao', item.description));
-  if (item.descriptionOrigin) article.append(element('p', 'descriptorigem', item.descriptionOrigin));
 
   const foot = element('footer', 'card-foot');
   const time = element('time', '', item.publishedAtLabel || 'Data não informada');
@@ -95,19 +92,13 @@ function render(payload) {
   const edition = payload && payload.edition;
   const status = (payload && payload.status) || {};
 
-  let message = status.message || 'Sem informações de status.';
-  if (edition) {
-    message = edition.dateLabel || edition.date || message;
-  } else if (status.lastError) {
-    message = `${message} Última falha: ${status.lastError}`;
-  }
-  elements.status.textContent = message;
-
-  elements.notice.hidden = !edition;
+  elements.editionDate.hidden = !edition;
   elements.badge.hidden = !edition || edition.kind !== 'historical';
   if (edition) {
-    elements.editionTitle.textContent = edition.dateLabel || edition.date || '';
+    elements.editionDate.textContent = edition.dateLabel || edition.date || '';
     elements.collectedAt.textContent = edition.collectedAtLabel || 'Data de coleta não informada';
+  } else {
+    elements.collectedAt.textContent = 'Data de coleta não informada';
   }
 
   const sections = edition && edition.sections ? edition.sections : {};
@@ -147,7 +138,9 @@ async function load() {
     if (!response.ok) throw new Error('edition-unavailable');
     render(await response.json());
   } catch {
-    elements.status.textContent = 'Não foi possível carregar a edição local.';
+    elements.editionDate.hidden = true;
+    elements.badge.hidden = true;
+    elements.collectedAt.textContent = 'Data de coleta não informada';
     elements.politica.replaceChildren(element('p', 'empty', 'Notícias indisponíveis.'));
     elements.tecnologia.replaceChildren(element('p', 'empty', 'Notícias indisponíveis.'));
   }
@@ -159,7 +152,6 @@ async function refresh() {
   elements.refresh.hidden = false;
   elements.refresh.disabled = true;
   elements.refresh.textContent = 'Atualizando…';
-  elements.status.textContent = 'Atualizando edição…';
 
   try {
     const response = await fetch('/api/refresh', { method: 'POST', cache: 'no-store' });
@@ -169,7 +161,6 @@ async function refresh() {
       startCountdown(payload.status.retryAfterMs);
     }
   } catch {
-    elements.status.textContent = 'Não foi possível atualizar. Tente novamente mais tarde.';
     syncButton({ canRefresh: false, retryAfterMs: 60000 });
     startCountdown(60000);
   }

@@ -14,6 +14,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -65,7 +69,6 @@ body {
 .eyebrow,
 .origem,
 .destaque-label,
-.status,
 .button,
 .badge,
 .placeholder,
@@ -104,12 +107,6 @@ h1 {
   max-width: 24rem;
 }
 
-.status {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
 .button {
   padding: 0.6rem 1.1rem;
   border: 1px solid var(--accent-dark);
@@ -144,25 +141,6 @@ h1 {
 
 main {
   padding-block: clamp(2rem, 5vw, 3rem);
-}
-
-.notice {
-  margin-bottom: 2.5rem;
-  padding: 1.2rem 1.4rem;
-  border-left: 4px solid var(--accent);
-  border-radius: var(--radius);
-  background: var(--card);
-  box-shadow: var(--shadow);
-}
-
-.notice h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1.2rem;
-}
-
-.notice p {
-  margin: 0.35rem 0;
-  color: var(--muted);
 }
 
 .section {
@@ -316,6 +294,10 @@ main {
 
 .site-footer p {
   margin-block: 1.2rem;
+}
+
+.site-footer .badge {
+  margin-block: 0 1.2rem;
 }
 
 :focus-visible {
