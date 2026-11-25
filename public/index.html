@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Edição local de notícias de política e tecnologia, com fontes e descrições atribuídas." />
+    <title>Daily News — Política e Tecnologia</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <div>
+          <p class="eyebrow">Daily News · leitura local</p>
+          <h1>Edição de notícias</h1>
+          <p class="lede">Política e tecnologia com fontes explícitas e descrições atribuídas, sem verificação independente inventada.</p>
+          <p id="badge" class="badge" hidden>EDIÇÃO HISTÓRICA</p>
+        </div>
+        <div class="header-actions">
+          <p id="status" class="status" role="status" aria-live="polite" aria-atomic="true">Carregando edição…</p>
+          <button id="refresh" class="button" type="button" hidden>Atualizar</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo" class="wrap">
+      <section id="edicao" class="notice" aria-labelledby="edicao-titulo" hidden>
+        <h2 id="edicao-titulo">Sobre esta edição</h2>
+        <p id="edicao-status"></p>
+        <p>Data da edição: <strong id="edicao-data"></strong> · Coleta: <strong id="coleta-data"></strong></p>
+        <p id="historica-nota" class="historica-nota" hidden>
+          Edição histórica: textos reproduzidos de relatórios Markdown locais. Não é atualização GNews; atribuições e ressalvas foram preservadas.
+        </p>
+      </section>
+
+      <section class="section" aria-labelledby="politica-titulo">
+        <div class="section-head">
+          <p class="kicker">Seção 01</p>
+          <h2 id="politica-titulo">Política</h2>
+          <p>Primeira notícia em destaque; demais itens em ordem de chegada.</p>
+        </div>
+        <div id="politica-lista" class="grid" aria-busy="true">
+          <p class="placeholder">Carregando notícias…</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="tecnologia-titulo">
+        <div class="section-head">
+          <p class="kicker">Seção 02</p>
+          <h2 id="tecnologia-titulo">Tecnologia</h2>
+          <p>Primeira notícia em destaque; demais itens em ordem de chegada.</p>
+        </div>
+        <div id="tecnologia-lista" class="grid" aria-busy="true">
+          <p class="placeholder">Carregando notícias…</p>
+        </div>
+      </section>
+
+      <section class="method" aria-labelledby="metodo-titulo">
+        <h2 id="metodo-titulo">Como ler esta página</h2>
+        <p>
+          Cada descrição é o texto editorial da fonte informada. Informações futuras, declarações oficiais e alegações não confirmadas
+          permanecem atribuídas; a presença de um link não implica verificação independente.
+        </p>
+        <noscript>
+          <p><strong>JavaScript desativado:</strong> a estrutura e as instruções permanecem visíveis, mas as notícias são carregadas da API local e exigem JavaScript.</p>
+        </noscript>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>Servidor local somente loopback · sem dependências, sem build e sem chamadas externas no navegador.</p>
+      </div>
+    </footer>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,360 @@
+:root {
+  --paper: #f7f4ee;
+  --card: #fffdf9;
+  --ink: #1c1b19;
+  --muted: #57534b;
+  --line: #d8d2c6;
+  --accent: #8a2a1a;
+  --accent-dark: #6b1f12;
+  --radius: 12px;
+  --shadow: 0 1px 2px rgba(28, 27, 25, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap {
+  width: min(100% - 2rem, 68rem);
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--ink);
+  color: #fff;
+  font-family: system-ui, sans-serif;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 0.5rem;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #fffdf9, var(--paper));
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+
+.eyebrow,
+.kicker,
+.origem,
+.destaque-label,
+.descriptorigem,
+.status,
+.button,
+.badge,
+.placeholder,
+.site-footer {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  max-width: 44rem;
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+}
+
+.header-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+  max-width: 24rem;
+}
+
+.status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.button {
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--accent-dark);
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.badge {
+  display: inline-block;
+  margin: 1rem 0 0;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: var(--accent-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+main {
+  padding-block: clamp(2rem, 5vw, 3rem);
+}
+
+.notice {
+  margin-bottom: 2.5rem;
+  padding: 1.2rem 1.4rem;
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.notice h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.notice p {
+  margin: 0.35rem 0;
+  color: var(--muted);
+}
+
+.historica-nota {
+  color: var(--accent-dark) !important;
+  font-weight: 700;
+}
+
+.section {
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.section-head {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.kicker {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-head h2 {
+  margin: 0.15rem 0 0.3rem;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+}
+
+.section-head p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid > .destaque {
+    grid-column: 1 / -1;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.card.destaque {
+  border-top: 5px solid var(--accent);
+  padding: clamp(1.25rem, 3vw, 1.8rem);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  line-height: 1.3;
+}
+
+.destaque h3 {
+  font-size: clamp(1.4rem, 3.2vw, 2rem);
+}
+
+.card h3 a {
+  color: inherit;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+.card h3 a:hover {
+  color: var(--accent-dark);
+}
+
+.origem {
+  margin: 0;
+  color: var(--accent-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.destaque-label {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.descricao {
+  margin: 0;
+  color: var(--ink);
+}
+
+.descriptorigem {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-style: italic;
+}
+
+.card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--line);
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+}
+
+.card-foot time {
+  color: var(--muted);
+}
+
+.card-foot a {
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.placeholder,
+.empty {
+  margin: 0;
+  padding: 1rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.method {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.method h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.25rem;
+}
+
+.method p {
+  max-width: 48rem;
+  margin: 0.35rem 0;
+  color: var(--muted);
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.site-footer p {
+  margin-block: 1.2rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
