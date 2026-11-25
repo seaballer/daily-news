@@ -32,7 +32,7 @@ test('importa o par histórico mais recente e ignora outros padrões', async () 
     assert.equal(edition.kind, 'historical');
     assert.equal(edition.date, '2026-11-24');
     assert.equal(edition.collectedAt, FIXED_NOW.toISOString());
-    assert.match(edition.status, /NÃO é atualização GNews/);
+    assert.match(edition.status, /não é atualização GNews/);
     assert.equal(edition.sections.politica.length, 1);
     assert.equal(edition.sections.tecnologia.length, 1);
     assert.match(edition.sections.politica[0].description, /Atribuição oficial\./);

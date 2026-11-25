@@ -5,10 +5,8 @@ const elements = {
   refresh: document.getElementById('refresh'),
   badge: document.getElementById('badge'),
   notice: document.getElementById('edicao'),
-  noticeStatus: document.getElementById('edicao-status'),
-  editionDate: document.getElementById('edicao-data'),
+  editionTitle: document.getElementById('edicao-titulo'),
   collectedAt: document.getElementById('coleta-data'),
-  historicalNote: document.getElementById('historica-nota'),
   politica: document.getElementById('politica-lista'),
   tecnologia: document.getElementById('tecnologia-lista'),
 };
@@ -103,10 +101,8 @@ function render(payload) {
 
   elements.notice.hidden = !edition;
   elements.badge.hidden = !edition || edition.kind !== 'historical';
-  elements.historicalNote.hidden = !edition || edition.kind !== 'historical';
   if (edition) {
-    elements.noticeStatus.textContent = edition.status || '';
-    elements.editionDate.textContent = edition.dateLabel || edition.date || '';
+    elements.editionTitle.textContent = edition.dateLabel || edition.date || '';
     elements.collectedAt.textContent = edition.collectedAtLabel || 'Data de coleta não informada';
   }
 

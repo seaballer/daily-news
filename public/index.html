@@ -26,20 +26,9 @@
     </header>
 
     <main id="conteudo" class="wrap">
-      <section id="edicao" class="notice" aria-labelledby="edicao-titulo" hidden>
-        <h2 id="edicao-titulo">Sobre esta edição</h2>
-        <p id="edicao-status"></p>
-        <p>Data da edição: <strong id="edicao-data"></strong> · Coleta: <strong id="coleta-data"></strong></p>
-        <p id="historica-nota" class="historica-nota" hidden>
-          Edição histórica: textos reproduzidos de relatórios Markdown locais. Não é atualização GNews; atribuições e ressalvas foram preservadas.
-        </p>
-      </section>
-
       <section class="section" aria-labelledby="politica-titulo">
         <div class="section-head">
-          <p class="kicker">Seção 01</p>
           <h2 id="politica-titulo">Política</h2>
-          <p>Primeira notícia em destaque; demais itens em ordem de chegada.</p>
         </div>
         <div id="politica-lista" class="grid" aria-busy="true">
           <p class="placeholder">Carregando notícias…</p>
@@ -48,13 +37,16 @@
 
       <section class="section" aria-labelledby="tecnologia-titulo">
         <div class="section-head">
-          <p class="kicker">Seção 02</p>
           <h2 id="tecnologia-titulo">Tecnologia</h2>
-          <p>Primeira notícia em destaque; demais itens em ordem de chegada.</p>
         </div>
         <div id="tecnologia-lista" class="grid" aria-busy="true">
           <p class="placeholder">Carregando notícias…</p>
         </div>
+      </section>
+
+      <section id="edicao" class="notice" aria-labelledby="edicao-titulo" hidden>
+        <h2 id="edicao-titulo"></h2>
+        <p>Coleta: <strong id="coleta-data"></strong></p>
       </section>
 
       <section class="method" aria-labelledby="metodo-titulo">
