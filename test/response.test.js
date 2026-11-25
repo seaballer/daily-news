@@ -4,10 +4,10 @@ import { editionView } from '../lib/response.js';
 
 test('a view da edição não expõe a origem da descrição', () => {
   const view = editionView({
-    kind: 'historical',
+    kind: 'gnews',
     date: '2026-11-25',
     collectedAt: '2026-11-25T14:55:28.828Z',
-    status: 'Edição histórica',
+    status: 'Edição GNews',
     sections: {
       politica: [{
         title: 'Notícia',

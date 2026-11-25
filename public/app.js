@@ -4,7 +4,6 @@ const elements = {
   refresh: document.getElementById('refresh'),
   editionDate: document.getElementById('edicao-data'),
   collectedAt: document.getElementById('coleta-data'),
-  badge: document.getElementById('badge'),
   politica: document.getElementById('politica-lista'),
   tecnologia: document.getElementById('tecnologia-lista'),
 };
@@ -93,7 +92,6 @@ function render(payload) {
   const status = (payload && payload.status) || {};
 
   elements.editionDate.hidden = !edition;
-  elements.badge.hidden = !edition || edition.kind !== 'historical';
   if (edition) {
     elements.editionDate.textContent = edition.dateLabel || edition.date || '';
     elements.collectedAt.textContent = edition.collectedAtLabel || 'Data de coleta não informada';
@@ -139,7 +137,6 @@ async function load() {
     render(await response.json());
   } catch {
     elements.editionDate.hidden = true;
-    elements.badge.hidden = true;
     elements.collectedAt.textContent = 'Data de coleta não informada';
     elements.politica.replaceChildren(element('p', 'empty', 'Notícias indisponíveis.'));
     elements.tecnologia.replaceChildren(element('p', 'empty', 'Notícias indisponíveis.'));

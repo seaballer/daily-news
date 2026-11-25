@@ -70,7 +70,6 @@ body {
 .origem,
 .destaque-label,
 .button,
-.badge,
 .placeholder,
 .site-footer {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -125,18 +124,6 @@ h1 {
 .button:disabled {
   opacity: 0.65;
   cursor: not-allowed;
-}
-
-.badge {
-  display: inline-block;
-  margin: 1rem 0 0;
-  padding: 0.3rem 0.65rem;
-  border: 1px solid var(--accent);
-  border-radius: 4px;
-  color: var(--accent-dark);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
 }
 
 main {
@@ -294,10 +281,6 @@ main {
 
 .site-footer p {
   margin-block: 1.2rem;
-}
-
-.site-footer .badge {
-  margin-block: 0 1.2rem;
 }
 
 :focus-visible {
